@@ -3,30 +3,297 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>aivaardigheid.nl</title>
+  <title>aivaardigheid.nl — AI-cursussen</title>
+  <meta name="description" content="Twee praktische AI-cursussen van een dag: Claude Code (programmeren met AI) en Claude Cowork (je kantoorwerk automatiseren).">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfdfa">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0c0a09">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
-    :root { color-scheme: light dark; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at 30% 20%, #1e3a8a 0%, #0f172a 60%);
-      color: #f8fafc;
-      text-align: center;
-      padding: 1.5rem;
+    :root {
+      color-scheme: light dark;
+      --background: #fcfdfa;
+      --foreground: #2a1508;
+      --primary: #e6a689;
+      --primary-foreground: #ffffff;
+      --accent: #d84315;
+      --muted: #ead8c8;
+      --muted-foreground: #6c4b37;
+      --secondary: #f3d8bf;
+      --secondary-foreground: #7b531e;
+      --border: #e5d8cd;
+      --card: #ffffff;
+      --radius: 1rem;
+      --container: 46rem;
     }
-    main { max-width: 32rem; }
-    h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0 0 0.5rem; letter-spacing: -0.02em; }
-    p { font-size: clamp(1rem, 3.5vw, 1.25rem); opacity: 0.85; margin: 0; }
-    .domain { font-weight: 600; opacity: 1; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #0c0a09;
+        --foreground: #e8d5bf;
+        --primary: #d99a63;
+        --primary-foreground: #0c0a09;
+        --accent: #ff7043;
+        --muted: #292524;
+        --muted-foreground: #a8a29e;
+        --secondary: #292524;
+        --secondary-foreground: #e7e5e4;
+        --border: #292524;
+        --card: #1c1917;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--background) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--muted-foreground);
+      transition: color 0.15s ease;
+    }
+    nav a:hover { color: var(--foreground); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--primary); color: var(--primary-foreground); }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+    }
+    .btn-secondary:hover { background: color-mix(in srgb, var(--secondary) 80%, var(--foreground)); }
+
+    /* Hero */
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 3.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      margin: 0 0 1.25rem;
+    }
+    .hero .lead {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--muted-foreground);
+      max-width: 34rem;
+      margin: 0 0 2rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    /* Section */
+    section { padding-block: 2rem; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted-foreground);
+      margin: 0 0 1.5rem;
+    }
+
+    /* Course cards */
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.6rem;
+    }
+    .card p { margin: 0 0 1.25rem; color: var(--muted-foreground); }
+
+    .meta { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+    .meta li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .meta li:first-child { border-top: none; }
+    .meta .k {
+      flex: 0 0 6.5rem;
+      color: var(--muted-foreground);
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 0.1rem;
+    }
+    .meta .v { flex: 1; }
+    .card .btn { margin-top: auto; align-self: flex-start; }
+
+    /* Contact */
+    .contact p { color: var(--muted-foreground); max-width: 34rem; margin: 0 0 1.25rem; }
+    .contact a.mail {
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: color-mix(in srgb, var(--muted-foreground) 40%, transparent);
+    }
+    .contact a.mail:hover { text-decoration-color: var(--muted-foreground); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding-block: 2rem;
+      color: var(--muted-foreground);
+      font-size: 0.85rem;
+    }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+
+    .placeholder { opacity: 0.6; font-style: italic; }
+
+    @media (max-width: 480px) {
+      nav { gap: 1rem; }
+      .brand { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="/">aivaardigheid.nl</a>
+      <nav>
+        <a href="#cursussen">Cursussen</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <h1>Hello, world 👋</h1>
-    <p>Welkom op <span class="domain">aivaardigheid.nl</span> — binnenkort meer.</p>
+    <!-- HERO -->
+    <div class="container hero">
+      <h1>Praktische AI-cursussen</h1>
+      <p class="lead">
+        Twee praktische AI-cursussen van een dag: leer programmeren met AI, of automatiseer je kantoorwerk.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cursussen">Bekijk de cursussen</a>
+        <a class="btn btn-secondary" href="#contact">Neem contact op</a>
+      </div>
+    </div>
+
+    <!-- CURSUSSEN -->
+    <section id="cursussen" class="container">
+      <p class="section-label">Cursussen</p>
+      <div class="courses">
+
+        <!-- Cursus 1 -->
+        <article class="card">
+          <h3>Claude Code</h3>
+          <p>Een praktische AI-programmeercursus. In één dag leer je programmeren met behulp van AI.</p>
+          <ul class="meta">
+            <li><span class="k">Duur</span><span class="v">1 dag</span></li>
+            <li><span class="k">Locatie</span><span class="v">LocHal, Tilburg</span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
+            <li><span class="k">Data</span><span class="v placeholder">[datum/data]</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Aanmelden</a>
+        </article>
+
+        <!-- Cursus 2 -->
+        <article class="card">
+          <h3>Claude Cowork</h3>
+          <p>Laat AI op een geavanceerde manier werk voor je doen en automatiseer taken in je kantoorwerk.</p>
+          <ul class="meta">
+            <li><span class="k">Duur</span><span class="v">1 dag</span></li>
+            <li><span class="k">Locatie</span><span class="v">LocHal, Tilburg</span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
+            <li><span class="k">Data</span><span class="v placeholder">[datum/data]</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Aanmelden</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container contact">
+      <p class="section-label">Contact</p>
+      <p>Interesse of aanmelden voor een van de cursussen? Stuur een e-mail.</p>
+      <a class="mail" href="mailto:info@aivaardigheid.nl">info@aivaardigheid.nl</a>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Daan van Ramshorst</span>
+      <span>aivaardigheid.nl</span>
+    </div>
+  </footer>
 </body>
 </html>
