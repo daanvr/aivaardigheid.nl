@@ -204,6 +204,50 @@
       text-decoration-color: color-mix(in srgb, var(--muted-foreground) 40%, transparent);
     }
     .contact a.mail:hover { text-decoration-color: var(--muted-foreground); }
+    .contact-links { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+
+    /* Locatie */
+    .locatie p { color: var(--muted-foreground); max-width: 34rem; margin: 0 0 1.25rem; }
+    .locatie p a, .meta .v a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: color-mix(in srgb, var(--muted-foreground) 40%, transparent);
+    }
+    .locatie p a:hover, .meta .v a:hover { text-decoration-color: var(--muted-foreground); }
+    .loc-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .loc-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.15s ease;
+    }
+    .loc-links a:hover { background: color-mix(in srgb, var(--secondary) 80%, var(--foreground)); }
+    .loc-figure { margin: 0 0 1.5rem; }
+    .loc-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .loc-figure figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    .loc-figure figcaption a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
     /* Footer */
     footer {
@@ -229,6 +273,7 @@
       <a class="brand" href="/">aivaardigheid.nl</a>
       <nav>
         <a href="#cursussen">Cursussen</a>
+        <a href="#locatie">Locatie</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -258,34 +303,54 @@
           <p>Een praktische AI-programmeercursus. In één dag leer je programmeren met behulp van AI.</p>
           <ul class="meta">
             <li><span class="k">Duur</span><span class="v">1 dag</span></li>
-            <li><span class="k">Locatie</span><span class="v">LocHal, Tilburg</span></li>
-            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
-            <li><span class="k">Data</span><span class="v placeholder">[datum/data]</span></li>
-          </ul>
+            <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>          </ul>
           <a class="btn btn-primary" href="#contact">Aanmelden</a>
         </article>
 
         <!-- Cursus 2 -->
         <article class="card">
           <h3>Claude Cowork</h3>
-          <p>Laat AI op een geavanceerde manier werk voor je doen en automatiseer taken in je kantoorwerk.</p>
+          <p>Laat AI werk voor je doen en automatiseer taken in je kenniswerk.</p>
           <ul class="meta">
             <li><span class="k">Duur</span><span class="v">1 dag</span></li>
-            <li><span class="k">Locatie</span><span class="v">LocHal, Tilburg</span></li>
-            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
-            <li><span class="k">Data</span><span class="v placeholder">[datum/data]</span></li>
-          </ul>
+            <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>          </ul>
           <a class="btn btn-primary" href="#contact">Aanmelden</a>
         </article>
 
       </div>
     </section>
 
+    <!-- LOCATIE -->
+    <section id="locatie" class="container locatie">
+      <p class="section-label">Locatie</p>
+      <figure class="loc-figure">
+        <img src="images/lochal.jpg" alt="Het interieur van de LocHal in Tilburg: een voormalige locomotievenwerkplaats, nu bibliotheek en cultuurcentrum" loading="lazy" width="2048" height="1536">
+        <figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Loc_hall_inside_2.jpg" target="_blank" rel="noopener">Brandpunt</a> (Wikimedia Commons), <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
+      </figure>
+      <p>
+        Beide cursussen vinden plaats in de <a href="https://www.lochal.nl/" target="_blank" rel="noopener">LocHal</a> in Tilburg. Dit markante gebouw werd in 1932 gebouwd als werkplaats van de Nederlandse Spoorwegen, waar eerst zware stoomlocomotieven en later diesel- en elektrische locomotieven werden onderhouden en gerepareerd. De stalen hal is zo'n 90 meter lang, 60 meter breed en 18 meter hoog.
+      </p>
+      <p>
+        Sinds 2015 is de LocHal een gemeentelijk monument. Tussen 2017 en 2019 werd het verbouwd tot een centrum voor kunst, cultuur en ontmoeting, waarbij originele elementen zoals de kolommen, stalen spanten en de locomotiefrails in de vloer bewaard bleven. Vandaag huisvest het onder meer de hoofdvestiging van Bibliotheek Midden-Brabant. De verbouwing werd meermaals bekroond, onder andere met de titel World Building of the Year 2019.
+      </p>
+      <div class="loc-links">
+        <a href="https://www.lochal.nl/" target="_blank" rel="noopener">🌐 LocHal website</a>
+        <a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">📍 Google Maps</a>
+        <a href="https://maps.app.goo.gl/iagKzrtKeQA4x5wi8" target="_blank" rel="noopener">🅿️ Parkeergarage</a>
+        <a href="https://maps.app.goo.gl/hNsYnGkz4utdhobb7" target="_blank" rel="noopener">🚉 Station</a>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="container contact">
       <p class="section-label">Contact</p>
-      <p>Interesse of aanmelden voor een van de cursussen? Stuur een e-mail.</p>
-      <a class="mail" href="mailto:info@aivaardigheid.nl">info@aivaardigheid.nl</a>
+      <p>Interesse of aanmelden voor een van de cursussen? Stuur een e-mail of bel.</p>
+      <div class="contact-links">
+        <a class="mail" href="mailto:info@aivaardigheid.nl">info@aivaardigheid.nl</a>
+        <a class="mail" href="tel:+31623154507">+31 6 2315 4507</a>
+      </div>
     </section>
   </main>
 
