@@ -27,11 +27,23 @@
   <meta name="twitter:description" content="Twee praktische AI-cursussen van een dag: leer programmeren met AI of automatiseer je kantoorwerk. LocHal, Tilburg.">
   <meta name="twitter:image" content="https://aivaardigheid.nl/images/lochal.jpg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-
   <style>
+    /* Zelf-gehoste variabele fonts (Geist, Geist Mono) — geen externe verzoeken */
+    @font-face {
+      font-family: 'Geist';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('/fonts/geist.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Geist Mono';
+      font-style: normal;
+      font-weight: 400 500;
+      font-display: swap;
+      src: url('/fonts/geist-mono.woff2') format('woff2');
+    }
+
     :root {
       color-scheme: light dark;
       --background: #fcfdfa;
@@ -314,6 +326,10 @@
     .footer-brand { display: flex; flex-direction: column; gap: 0.2rem; }
     .footer-brand strong { color: var(--foreground); font-weight: 600; }
     .footer-legal { font-size: 0.78rem; }
+    .footer-end { display: flex; flex-direction: column; gap: 0.35rem; align-items: flex-start; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+    .footer-nav a { color: var(--muted-foreground); text-decoration: none; }
+    .footer-nav a:hover { color: var(--foreground); text-decoration: underline; text-underline-offset: 3px; }
 
     .placeholder { opacity: 0.6; font-style: italic; }
 
@@ -434,7 +450,13 @@
         <strong>aivaardigheid.nl</strong>
         <span class="footer-legal">Daan van Ramshorst · KvK 96234016 · btw-id NL005197162B82</span>
       </div>
-      <span>© 2026 aivaardigheid.nl</span>
+      <div class="footer-end">
+        <nav class="footer-nav">
+          <a href="/voorwaarden.html">Voorwaarden</a>
+          <a href="/privacy.html">Privacyverklaring</a>
+        </nav>
+        <span>© 2026 aivaardigheid.nl</span>
+      </div>
     </div>
   </footer>
 </body>
