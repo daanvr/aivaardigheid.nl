@@ -121,6 +121,13 @@
       color: var(--secondary-foreground);
     }
     .btn-secondary:hover { background: color-mix(in srgb, var(--secondary) 80%, var(--foreground)); }
+    .btn-disabled {
+      background: var(--muted);
+      color: var(--muted-foreground);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .btn-disabled:active { transform: none; }
 
     /* Hero */
     .hero {
@@ -193,7 +200,34 @@
       padding-top: 0.1rem;
     }
     .meta .v { flex: 1; }
-    .card .btn { margin-top: auto; align-self: flex-start; }
+    .card-actions {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    /* Werkgever / budget callout */
+    .employer {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+    }
+    .employer-text { flex: 1 1 18rem; }
+    .employer-text h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    .employer-text p { margin: 0; color: var(--muted-foreground); font-size: 0.95rem; }
+    .employer .btn { flex: 0 0 auto; }
 
     /* Contact */
     .contact p { color: var(--muted-foreground); max-width: 34rem; margin: 0 0 1.25rem; }
@@ -307,7 +341,10 @@
             <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
             <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Aanmelden</a>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="#contact">Aanmelden</a>
+            <a class="btn btn-secondary" href="downloads/claude-code-cursus.pdf" download="Claude Code Cursus - aivaardigheid.nl.pdf">📄 Cursusinfo (PDF)</a>
+          </div>
         </article>
 
         <!-- Cursus 2 -->
@@ -320,9 +357,20 @@
             <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
             <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Aanmelden</a>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="#contact">Aanmelden</a>
+            <span class="btn btn-disabled" aria-disabled="true" title="Cursusinformatie volgt binnenkort">📄 Cursusinfo (binnenkort)</span>
+          </div>
         </article>
 
+      </div>
+
+      <div class="employer">
+        <div class="employer-text">
+          <h3>Budget nodig van je werkgever?</h3>
+          <p>Download de volledige cursusinformatie als pdf en deel die met je leidinggevende om budget voor de cursus aan te vragen.</p>
+        </div>
+        <a class="btn btn-primary" href="downloads/claude-code-cursus.pdf" download="Claude Code Cursus - aivaardigheid.nl.pdf">📄 Download cursusinfo (PDF)</a>
       </div>
     </section>
 
