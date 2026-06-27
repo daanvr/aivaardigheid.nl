@@ -8,6 +8,25 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfdfa">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0c0a09">
 
+  <link rel="canonical" href="https://aivaardigheid.nl/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="aivaardigheid.nl">
+  <meta property="og:url" content="https://aivaardigheid.nl/">
+  <meta property="og:title" content="Praktische AI-cursussen — aivaardigheid.nl">
+  <meta property="og:description" content="Twee praktische AI-cursussen van een dag: leer programmeren met AI (Claude Code) of automatiseer je kantoorwerk (Claude Cowork). LocHal, Tilburg.">
+  <meta property="og:image" content="https://aivaardigheid.nl/images/lochal.jpg">
+  <meta property="og:image:width" content="2048">
+  <meta property="og:image:height" content="1536">
+  <meta property="og:image:alt" content="De LocHal in Tilburg, de cursuslocatie">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Praktische AI-cursussen — aivaardigheid.nl">
+  <meta name="twitter:description" content="Twee praktische AI-cursussen van een dag: leer programmeren met AI of automatiseer je kantoorwerk. LocHal, Tilburg.">
+  <meta name="twitter:image" content="https://aivaardigheid.nl/images/lochal.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -291,7 +310,10 @@
       color: var(--muted-foreground);
       font-size: 0.85rem;
     }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 0.75rem 1.5rem; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.2rem; }
+    .footer-brand strong { color: var(--foreground); font-weight: 600; }
+    .footer-legal { font-size: 0.78rem; }
 
     .placeholder { opacity: 0.6; font-style: italic; }
 
@@ -339,10 +361,10 @@
             <li><span class="k">Datum</span><span class="v">Woensdag 8 juli 2026</span></li>
             <li><span class="k">Duur</span><span class="v">1 dag</span></li>
             <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
-            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500 p.p. <span style="color:var(--muted-foreground)">· excl. btw</span></span></li>
           </ul>
           <div class="card-actions">
-            <a class="btn btn-primary" href="#contact">Aanmelden</a>
+            <a class="btn btn-primary" href="mailto:info@aivaardigheid.nl?subject=Aanmelding%20Claude%20Code%20%E2%80%94%208%20juli%202026&body=Hoi%20Daan%2C%0A%0AIk%20wil%20me%20graag%20aanmelden%20voor%20de%20cursus%20Claude%20Code%20%28woensdag%208%20juli%202026%2C%20LocHal%20Tilburg%29.%0A%0ANaam%3A%0ATelefoonnummer%3A%0AAantal%20personen%3A%0AFactuurgegevens%20%28bedrijfsnaam%20%2B%20adres%2C%20of%20particulier%29%3A%0A%0AEventuele%20vragen%20of%20opmerkingen%3A%0A%0AMet%20vriendelijke%20groet%2C%0A">Aanmelden</a>
             <a class="btn btn-secondary" href="downloads/claude-code-cursus.pdf" download="Claude Code Cursus - aivaardigheid.nl.pdf">📄 Cursusinfo (PDF)</a>
           </div>
         </article>
@@ -355,10 +377,10 @@
             <li><span class="k">Datum</span><span class="v">Woensdag 15 juli 2026</span></li>
             <li><span class="k">Duur</span><span class="v">1 dag</span></li>
             <li><span class="k">Locatie</span><span class="v"><a href="https://maps.app.goo.gl/GzQkufVFpSDQUedN8" target="_blank" rel="noopener">LocHal, Tilburg</a></span></li>
-            <li><span class="k">Prijs</span><span class="v">€ 500</span></li>
+            <li><span class="k">Prijs</span><span class="v">€ 500 p.p. <span style="color:var(--muted-foreground)">· excl. btw</span></span></li>
           </ul>
           <div class="card-actions">
-            <a class="btn btn-primary" href="#contact">Aanmelden</a>
+            <a class="btn btn-primary" href="mailto:info@aivaardigheid.nl?subject=Aanmelding%20Claude%20Cowork%20%E2%80%94%2015%20juli%202026&body=Hoi%20Daan%2C%0A%0AIk%20wil%20me%20graag%20aanmelden%20voor%20de%20cursus%20Claude%20Cowork%20%28woensdag%2015%20juli%202026%2C%20LocHal%20Tilburg%29.%0A%0ANaam%3A%0ATelefoonnummer%3A%0AAantal%20personen%3A%0AFactuurgegevens%20%28bedrijfsnaam%20%2B%20adres%2C%20of%20particulier%29%3A%0A%0AEventuele%20vragen%20of%20opmerkingen%3A%0A%0AMet%20vriendelijke%20groet%2C%0A">Aanmelden</a>
             <span class="btn btn-disabled" aria-disabled="true" title="Cursusinformatie volgt binnenkort">📄 Cursusinfo (binnenkort)</span>
           </div>
         </article>
@@ -408,8 +430,11 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>Daan van Ramshorst</span>
-      <span>aivaardigheid.nl</span>
+      <div class="footer-brand">
+        <strong>aivaardigheid.nl</strong>
+        <span class="footer-legal">Daan van Ramshorst · KvK 96234016 · btw-id NL005197162B82</span>
+      </div>
+      <span>© 2026 aivaardigheid.nl</span>
     </div>
   </footer>
 </body>
